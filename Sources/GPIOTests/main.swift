@@ -106,11 +106,13 @@ func gpiosForBoard(_ board: SupportedBoard) {
         DispatchQueue.global(qos: .background).async {
             while true {
                 
+                usleep(2000)
+                
                 if buttonGPIO.value == 1 {
                     
                     tappedSeconds += 1
                     
-                    if tappedSeconds == 10000 * waitSeconds {
+                    if tappedSeconds == 1000 * waitSeconds {
                         
                         print("Held 🔘")
                         DispatchQueue.main.async {
